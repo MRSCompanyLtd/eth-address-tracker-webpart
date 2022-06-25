@@ -1,5 +1,7 @@
 # address-tracker-webpart
 
+__NOTE: This webpart is still under active development and is not complete.__
+
 ## Summary
 
 Provides tracking on Ethereum wallets via SharePoint webpart. Currently only supports Ethereum mainnet.
