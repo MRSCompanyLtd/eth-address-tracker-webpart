@@ -1,0 +1,16 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "version": "1.15.0",
+    "libraryName": "address-tracker-webpart",
+    "libraryId": "be5c8c2c-ab09-49cb-a127-b78c7f475f11",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "address-tracker-webpart",
+    "solutionShortDescription": "address-tracker-webpart description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

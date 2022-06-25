@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "address-tracker-webpart-client-side-solution",
+    "id": "be5c8c2c-ab09-49cb-a127-b78c7f475f11",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.15.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "address-tracker-webpart description"
+      },
+      "longDescription": {
+        "default": "address-tracker-webpart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "address-tracker-webpart Feature",
+        "description": "The feature that activates elements of the address-tracker-webpart solution.",
+        "id": "eeea31b4-5f67-4827-b11c-98a8eb1eb9eb",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/address-tracker-webpart.sppkg"
+  }
+}
