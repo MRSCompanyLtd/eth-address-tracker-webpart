@@ -1,0 +1,72 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.tx {
+    background: "[theme:themePrimary, default: #323130]";
+    color: white;
+    padding: 8px;
+    margin: 4px 0;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    height: 32px;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.icons {
+    display: inline-flex;
+}
+
+.dropdown {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+
+    &:last-child {
+        margin-left: 8px;
+    }
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.25s linear height;
+    overflow: hidden;
+
+    & span {
+        font-weight: 500;
+    }
+
+    & > * {
+        margin: 4px 0;
+    }
+}
+
+.open {
+    transition: 0.50s;
+    -webkit-transition: 0.50s;
+    -moz-transition: 0.50s;
+    -ms-transition: 0.50s;
+    -o-transition: 0.50s;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.close {
+    transition: 0.50s;
+    -webkit-transition: 0.50s;
+    -moz-transition: 0.50s;
+    -ms-transition: 0.50s;
+    -o-transition: 0.50s;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
