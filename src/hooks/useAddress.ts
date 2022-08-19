@@ -39,7 +39,9 @@ const useAddress = (provider: AlchemyWebSocketProvider, address: string) => {
             "method": "alchemy_getAssetTransfers",
             "params": [{
                 "fromBlock": "0x0",
-                "fromAddress": address
+                "toBlock": "latest",
+                "fromAddress": address,
+                "category": ["external", "erc20", "erc721", "erc1155"]
             }]
         });
 
@@ -75,13 +77,16 @@ const useAddress = (provider: AlchemyWebSocketProvider, address: string) => {
             "method": "alchemy_getAssetTransfers",
             "params": [{
                 "fromBlock": "0x0",
-                "toAddress": address
+                "toBlock": "latest",
+                "toAddress": address,
+                "category": ["external", "erc20", "erc721", "erc1155"]
             }]
         });
 
         requestOptions.data = data;
 
         const received = await axios(url, requestOptions).then(res => {
+            console.log(res.data.result);
             return res.data.result.transfers;
         }).catch(e => {
             console.log(e);
@@ -93,6 +98,7 @@ const useAddress = (provider: AlchemyWebSocketProvider, address: string) => {
                 asset: item.asset,
                 blockNumber: Number(item.blockNum),
                 category: item.category,
+                contract: item.rawContract.address,
                 erc721TokenId: item.erc721TokenId,
                 erc1155Metadata: item.erc1155Metadata,
                 from: item.from,
@@ -107,6 +113,7 @@ const useAddress = (provider: AlchemyWebSocketProvider, address: string) => {
                 asset: item.asset,
                 blockNumber: Number(item.blockNum),
                 category: item.category,
+                contract: item.rawContract.address,
                 erc721TokenId: item.erc721TokenId,
                 erc1155Metadata: item.erc1155Metadata,
                 from: item.from,
