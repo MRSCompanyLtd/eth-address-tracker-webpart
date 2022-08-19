@@ -14,9 +14,40 @@
   text-align: center;
 }
 
-.welcomeImage {
-  width: 100%;
-  max-width: 420px;
+.pivot {
+  margin: 12px 0;
+}
+
+.paging {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+
+  & > * {
+    margin: 0 8px;
+  }
+}
+
+.detailItem {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.pageButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: "[theme:themeDarker, default: rgb(68,68,68)]";
+  color: white;
+}
+
+.activePage {
+  background: "[theme:themeLighter, default: rgb(0,0,0)]";
 }
 
 .links {

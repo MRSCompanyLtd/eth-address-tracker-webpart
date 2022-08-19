@@ -7,6 +7,9 @@ import useConnection from '../../../hooks/useConnection';
 import { ethers } from 'ethers';
 import useAddress from '../../../hooks/useAddress';
 import { Dropdown, Pivot, PivotItem, Spinner } from 'office-ui-fabric-react';
+import Sent from './Transactions';
+import Transactions from './Transactions';
+import { formatNumber } from '../../../utils/format';
 
 const AddressTracker: React.FC<IAddressTrackerProps> = ({ addresses, apiKey, hasTeamsContext, isDarkTheme }) => {
   const [selected, setSelected] = React.useState<number>(1);
@@ -21,44 +24,46 @@ const AddressTracker: React.FC<IAddressTrackerProps> = ({ addresses, apiKey, has
       </div>
       :
       <>
-      <div className={styles.welcome}>
-        <h2>You're connected!</h2>
-      </div>
       <div>
-        <h4>Tracking address {addresses[selected].address}</h4>
+        <h3 style={{ margin: '8px 0'}}>Tracking {addresses[selected].label}</h3>
+        <span>{addresses[selected].address}</span>
         <Dropdown
           options={addresses.map((item, index) => { return { key: index, text: `${item.label} (${item.address.slice(0, 5)}...${item.address.slice(37)})` } })}
           selectedKey={selected}
+          style={{ margin: '12px 0'}}
           onChanged={(e) => setSelected(Number(e.key))}
         />
       </div>
-      <div>
+      <div className={styles.pivot}>
         <Pivot linkFormat={1} linkSize={1}>
           <PivotItem headerText="Details">
             {loading ?
             <Spinner />
             :
-            <>
-            <div>
-              Current balance: {balance} ETH  
+            <div style={{ margin: '12px 0' }}>
+              <h3>
+                Account Details
+              </h3>
+              <div className={styles.detailItem}>
+                Current balance: {formatNumber(balance)} ETH  
+              </div>
+              <div className={styles.detailItem}>
+                Total sent transactions: {txs.sent.length}  
+              </div>
+              <div className={styles.detailItem}>
+                Total received transactions: {txs.received.length}  
+              </div>
+              <div className={styles.detailItem}>
+                Tokens held: {tokens.length}
+              </div>
             </div>
-            <div>
-              Total sent transactions: {txs.sent.length}  
-            </div>
-            <div>
-              Total received transactions: {txs.received.length}  
-            </div>
-            <div>
-              Tokens held: {tokens.length}
-            </div>
-            </>
           }
           </PivotItem>
           <PivotItem headerText="Sent">
-            Sent view
+            <Transactions txs={txs.sent} loading={loading} type='sent' />
           </PivotItem>
           <PivotItem headerText="Received">
-            Received view
+            <Transactions txs={txs.received} loading={loading} type='received' />
           </PivotItem>
         </Pivot>
       </div>
