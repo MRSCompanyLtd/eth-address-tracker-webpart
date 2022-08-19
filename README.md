@@ -10,7 +10,7 @@ Provides tracking on Ethereum wallets via SharePoint webpart. Currently only sup
 
 1. Clone this repo.
 
-2. Create Addresses list in your SharePoint dev tenant. Use the Title field for the address, and add a "Label" field for your tag to make the address more understandable to a human. The webpart pulls this in on mount.
+2. Create Addresses list in your SharePoint dev tenant. Use the Title field for the address, and add a "Label" single line of text field for your tag to make the address more understandable to a human. The webpart pulls this in on mount.
 
 3. Adjust /config/serve.json to point to your SharePoint site with the Addresses list.
 
